@@ -31,16 +31,18 @@ class HornedBeasts extends React.Component {
                             <img src={data.image_url} alt="" onClick={this.addVotes} />
                             <h1>{this.state.votes} ❤️</h1> */}
 
-                            <Card style={{ width: '30rem'} }>
-                                <Card.Img variant="top" src={data.image_url} onClick={this.addVotes} />
+                            <Card style={{ width: '90rem'} }>
+                                
                                 <Card.Body>
                                     <Card.Title>{data.title}</Card.Title>
                                     <Card.Text>
                                     {data.description}
                                     </Card.Text>
-                                    <Card.Text>
+                                    <Card.Title>
                                     {this.state.votes} ❤️
-                                    </Card.Text>
+                                    </Card.Title>
+                                    <Card.Img variant="top" src={data.image_url} onClick={this.addVotes} />
+                                    
                                 </Card.Body>
                             </Card>
                         </div>
