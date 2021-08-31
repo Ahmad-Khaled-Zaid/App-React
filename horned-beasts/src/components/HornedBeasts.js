@@ -11,7 +11,7 @@ class HornedBeasts extends React.Component {
         }
     }
 
-    addVotes = () => {
+    addVotes = (event) => {
         this.setState({
             votes: this.state.votes + 1
 
@@ -22,33 +22,30 @@ class HornedBeasts extends React.Component {
 
         return (
             <div>
-                {JsonData.map((data) => {
-                    return (
 
-                        <div>
-                            {/* <h1>{data.title}</h1>
-                            <p>{data.description}</p>
-                            <img src={data.image_url} alt="" onClick={this.addVotes} />
-                            <h1>{this.state.votes} ❤️</h1> */}
 
-                            <Card style={{ width: '90rem'} }>
-                                
-                                <Card.Body>
-                                    <Card.Title>{data.title}</Card.Title>
-                                    <Card.Text>
-                                    {data.description}
-                                    </Card.Text>
-                                    <Card.Title>
-                                    {this.state.votes} ❤️
-                                    </Card.Title>
-                                    <Card.Img variant="top" src={data.image_url} onClick={this.addVotes} />
-                                    
-                                </Card.Body>
-                            </Card>
-                        </div>
 
-                    )
-                })}
+                <div>
+
+
+                    <Card style={{ width: '90rem' }}>
+
+                        <Card.Body>
+                            <Card.Title>{this.props.title}</Card.Title>
+                            <Card.Text>
+                                {this.props.description}
+                            </Card.Text>
+                            <Card.Title>
+                                {this.state.votes} ❤️
+                            </Card.Title>
+                            <Card.Img variant="top" src={this.props.image_url} onClick={this.addVotes} />
+
+                        </Card.Body>
+                    </Card>
+                </div>
+
+                    
+              }
 
             </div>
 
@@ -64,9 +61,6 @@ class HornedBeasts extends React.Component {
     }
 
 }
-
-// console.log(this.addVotes);
-
 
 export default HornedBeasts;
 
