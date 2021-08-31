@@ -6,6 +6,7 @@ class Main extends React.Component {
     const picturesCollection = JsonData.map(data => {
       return (
         <HornedBeasts
+        handleClose={this.props.handleClose}
           image_url={data.image_url}
           title={data.title}
           description={data.description}

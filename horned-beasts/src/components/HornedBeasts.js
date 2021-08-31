@@ -16,6 +16,7 @@ class HornedBeasts extends React.Component {
             votes: this.state.votes + 1
 
         })
+        this.props.handleClose();
     }
     render() {
 
