@@ -1,67 +1,43 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
-import JsonData from '../assest/data.json'
+import Card from 'react-bootstrap/Card';
+
+
+
 class HornedBeasts extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            votes: 0,
-
+            vote: 0
         }
     }
 
-    addVotes = (event) => {
+    addVotes = () => {
         this.setState({
-            votes: this.state.votes + 1
-
+            vote: this.state.vote + 1
         })
-        this.props.handleClose();
     }
+    alertModal = () => {
+        this.props.displayModal(this.props.title)
+    }
+
     render() {
-
-
         return (
             <div>
-
-
-
-                <div>
-
-
-                    <Card style={{ width: '90rem' }}>
-
-                        <Card.Body>
-                            <Card.Title>{this.props.title}</Card.Title>
-                            <Card.Text>
-                                {this.props.description}
-                            </Card.Text>
-                            <Card.Title>
-                                {this.state.votes} ❤️
-                            </Card.Title>
-                            <Card.Img variant="top" src={this.props.image_url} onClick={this.addVotes} />
-
-                        </Card.Body>
-                    </Card>
-                </div>
-
-                    
-              }
-
+                <Card style={{ width: '18rem' }} onClick={this.alertModal}>
+                    <Card.Img variant="top" src={this.props.imageUrl} onClick={this.addVotes} />
+                    <Card.Body>
+                        <Card.Title>{this.props.title}</Card.Title>
+                        <Card.Text>
+                            ❤️   {this.state.vote}
+                        </Card.Text>
+                        <Card.Text>
+                            {this.props.description}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
             </div>
-
-
         )
-
-
-
-
-
-
-
     }
-
 }
-
 export default HornedBeasts;
-
