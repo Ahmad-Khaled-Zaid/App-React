@@ -5,6 +5,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import JSONDATA from './assest/data.json';
 import DataModal from './components/DataModel';
+import Form from './components/Form'
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,6 @@ class App extends React.Component {
     const selectedBeast2 = JSONDATA.filter((item)  => { 
       return (item.title === title);
     });
-    console.log(selectedBeast2);
     this.setState({
       showModel: true,
       selectedBeast: selectedBeast2[0],
@@ -33,6 +33,8 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <Form />
+        <br></br><br></br><br></br>
         <Main  HornedData={JSONDATA} displayModal={this.alertModal}  />
         <DataModal
           selectedBeast={this.state.selectedBeast}
@@ -40,6 +42,7 @@ class App extends React.Component {
           close={this.closeModal}
         />
         <Footer />
+       
       </div>
     )
   }
